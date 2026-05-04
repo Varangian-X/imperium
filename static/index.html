@@ -6,14 +6,120 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>HTML Web App</title>
+    <title>Sovereign Forge — Lore Query</title>
     <link rel="stylesheet" href="/static/styles.css?v={{ css_hash }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to your HTML Web App</h1>
-        <p>Start building something amazing.</p>
-        <p id="status"><span class="dot"></span><span class="text">Checking API…</span></p>
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-inner">
+                <div class="brand">
+                    <span class="brand-glyph">⬡</span>
+                    <div>
+                        <h1 class="brand-title">Sovereign Forge</h1>
+                        <p class="brand-sub">Lore Query Interface</p>
+                    </div>
+                </div>
+                <div id="api-status" class="api-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Connecting…</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main -->
+        <main class="main">
+
+            <!-- Mode selector -->
+            <section class="mode-selector">
+                <button class="mode-btn active" data-mode="image_prompt">
+                    <span class="mode-icon">🎨</span>
+                    <span class="mode-label">Image Prompt</span>
+                    <span class="mode-desc">Visual prompt fragments for AI art generation</span>
+                </button>
+                <button class="mode-btn" data-mode="lore_hooks">
+                    <span class="mode-icon">📖</span>
+                    <span class="mode-label">Lore &amp; Narrative Hooks</span>
+                    <span class="mode-desc">Story seeds and world-building hooks</span>
+                </button>
+                <button class="mode-btn" data-mode="audit">
+                    <span class="mode-icon">🔍</span>
+                    <span class="mode-label">Lore Audit</span>
+                    <span class="mode-desc">Check new data against the knowledge base</span>
+                </button>
+            </section>
+
+            <!-- Query form -->
+            <section class="query-form">
+                <div class="form-row">
+                    <div class="field field--context">
+                        <label for="context-input" class="field-label">Faction / Location <span class="field-hint">(optional)</span></label>
+                        <input id="context-input" type="text" class="field-input" placeholder="e.g. Iron Covenant, The Ashfields…">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="field field--query">
+                        <label for="query-input" class="field-label" id="query-label">Query / Topic</label>
+                        <textarea id="query-input" class="field-textarea" rows="4" placeholder="Describe what you want to query…"></textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button id="submit-btn" class="submit-btn">
+                        <span class="submit-icon">⬡</span>
+                        <span id="submit-label">Generate Image Prompt</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results -->
+            <section id="results" class="results hidden">
+
+                <!-- Audit verdict banner -->
+                <div id="audit-banner" class="audit-banner hidden">
+                    <span id="audit-icon" class="audit-icon"></span>
+                    <div>
+                        <strong id="audit-verdict-text"></strong>
+                        <span id="audit-confidence" class="audit-confidence"></span>
+                    </div>
+                </div>
+
+                <!-- Result body -->
+                <div class="result-card">
+                    <div class="result-header">
+                        <span id="result-mode-label" class="result-mode-label"></span>
+                        <button id="copy-btn" class="copy-btn" title="Copy to clipboard">⎘ Copy</button>
+                    </div>
+                    <div id="result-body" class="result-body"></div>
+                </div>
+
+                <!-- Sources -->
+                <div id="sources-section" class="sources-section hidden">
+                    <p class="sources-title">Knowledge Base Sources</p>
+                    <ul id="sources-list" class="sources-list"></ul>
+                </div>
+
+            </section>
+
+            <!-- Loading -->
+            <div id="loading" class="loading hidden">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Querying the Forge…</p>
+            </div>
+
+            <!-- Error -->
+            <div id="error-banner" class="error-banner hidden">
+                <span>⚠</span>
+                <span id="error-text"></span>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <span>Sovereign Forge Lore Query · Powered by Recall &amp; Gemini</span>
+        </footer>
+
     </div>
     <script src="/static/app.js?v={{ js_hash }}"></script>
 </body>

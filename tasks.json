@@ -1,0 +1,32 @@
+[
+  {
+    "content": "[setup-1] Update pyproject.toml name/description, install google-genai",
+    "id": "1",
+    "status": "completed"
+  },
+  {
+    "content": "[backend-1] Build routes.py: /api/query endpoint with 3 modes (image_prompt, lore_hooks, audit)",
+    "id": "2",
+    "status": "completed"
+  },
+  {
+    "content": "[backend-2] Recall search helper (RECALL_API_KEY + RECALL_MCP_URL) + Gemini synthesis helper",
+    "id": "3",
+    "status": "completed"
+  },
+  {
+    "content": "[frontend-1] Build index.html: 3-mode UI with input, faction/location field, submit",
+    "id": "4",
+    "status": "completed"
+  },
+  {
+    "content": "[frontend-2] Build styles.css: dark lore-themed UI",
+    "id": "5",
+    "status": "completed"
+  },
+  {
+    "content": "[frontend-3] Build app.js: fetch logic, render results, red audit warning",
+    "id": "6",
+    "status": "completed"
+  }
+]

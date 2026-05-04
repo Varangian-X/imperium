@@ -1,7 +1,7 @@
 [project]
-name = "data-app"
+name = "lore-query-application"
 version = "0.1.0"
-description = "Data App"
+description = "Lore Query Application — query Recall knowledge base for image prompt fragments, lore hooks, and lore auditing"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -11,6 +11,7 @@ dependencies = [
     "jinja2==3.1.6",
     "python-multipart==0.0.22",
     "watchfiles==1.1.1",
+    "google-genai>=1.73.1",
 ]
 
 [tool.uv]
